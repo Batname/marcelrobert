@@ -28,12 +28,15 @@
 
 <IfModule mod_php5.c>
 
+
+
 ############################################
 ## adjust memory limit
 
 #    php_value memory_limit 64M
     php_value memory_limit 256M
     php_value max_execution_time 18000
+    php_value display_errors On
 
 ############################################
 ## disable magic quotes for php request vars
@@ -207,3 +210,6 @@
 ## http://developer.yahoo.com/performance/rules.html#etags
 
     #FileETag none
+
+SetEnv MAGE_IS_DEVELOPER_MODE “true”
+
