@@ -70,6 +70,22 @@ Open a web browser and navigate to your website (to the folder where you extract
 
 System > Configuration > Design > Header
 
+###### Create custom sub-theme
+
+Do not copy all files and when you're creating a sub-theme, don’t copy folder skin/frontend/ultimo/default/css/_config/ to your sub-theme, that folder should stay in the default theme. Otherwise it will override all your theme configuration from the admin panel.
+
+1. Create **main_marcelrobert** Theme
+
+Template files are organized as follows:
+* layout – directory contains XML files which define page structure
+* template – directory contains template files (.phtml), a mix of HTML and PHP
+* locale – directory contains CSV files with translation strings
+Skin files are organized as follows:
+* css – directory contains CSS files
+* images – directory contains images
+* js – directory contains theme-specific JavaScript files
+
+Enable the new sub-theme in the admin panel. Go to `System > Configuration >Design > Themes` and enter **main_marcelrobert** (the sub-theme name) in the default field:
 
 ## 5. New domain
 
@@ -182,3 +198,18 @@ link store view config `System->COnfiguration->General->Web->Url options->Add St
 
 Flag images (16x12 pixels, PNG format) should be uploaded to skin/frontend/ultimo/default/images/flags folder. Image names should be the same as the store view codes. E.g. if you have a store view with the code de, you will need to upload a flag image de.png to skin/frontend/ultimo/default/images/flags folder.
 
+## 6. Theme features and elements
+
+###### Home page
+
+Create Marcel Robert Theme Page set this on `System > Configuration > General > Web > Default Pages`
+
+1. Static blocks
+Add blocks to cms blocks
+* home_main_sb_1
+* home_main_sb_2
+* home_main_sb_3
+* home_main_sb_4
+* home_main_sb_5
+
+than add to home page `{{block type="cms/block" block_id="foo_block"}}`
