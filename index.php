@@ -37,7 +37,11 @@ Whoops, it looks like you have an invalid PHP version.</h3></div><p>Magento supp
 /**
  * Error reporting
  */
-error_reporting(E_ALL | E_STRICT);
+error_reporting (
+    defined('E_DEPRECATED')
+        ? (E_ALL | E_STRICT) ^ E_DEPRECATED
+        : E_ALL | E_STRICT
+);
 
 /**
  * Compilation includes configuration file
@@ -84,4 +88,14 @@ $mageRunCode = isset($_SERVER['MAGE_RUN_CODE']) ? $_SERVER['MAGE_RUN_CODE'] : ''
 /* Run store or run website */
 $mageRunType = isset($_SERVER['MAGE_RUN_TYPE']) ? $_SERVER['MAGE_RUN_TYPE'] : 'store';
 
-Mage::run($mageRunCode, $mageRunType);
+// Mage::run($mageRunCode, $mageRunType);
+
+switch($_SERVER['HTTP_HOST']) {
+    case 'marcelrobert.it':
+    case 'www.marcelrobert.it':
+        Mage::run('italy', 'website');
+        break;
+    default:
+        Mage::run($mageRunCode, $mageRunType);
+        break;
+}
