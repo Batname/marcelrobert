@@ -63,3 +63,7 @@ Open a web browser and navigate to your website (to the folder where you extract
 * Create one sample customer with full valid American address (for example use US/California, city Alamo with ZIP 94507), and one with full valid non American address (other country) to test payment and shipping gateways properly
 
 * Xdebug server
+
+## 4. Customization
+
+###### Logo
