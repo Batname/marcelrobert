@@ -109,8 +109,6 @@ if error `An error occurred while saving. Please review the error log.` than cha
 19. For both the Unsecure and Secure sections, uncheck the Use default box next to the Base URL item, and enter the URL for your store, e.g. http://marcelrobert.it/. Don't forget the trailing slash!
 20. Click the Save Config button.
 
-store view config `System->COnfiguration->General->Web->Url options->Add Store Code to Urls`
-
 ###### Parked Domain Method
 
 For this method, we'll pretend we own marcelrobert.com and marcelrobert.it. The marcelrobert.com domain is our primary domain, and Magento is already installed on it. Here's how we would set this up for the marcelrobert.it domain:
@@ -167,3 +165,20 @@ More Information
 [habrahabr](http://habrahabr.ru/post/91611/)
 [crucialwebhost](http://www.crucialwebhost.com/kb/how-to-setup-multiple-magento-stores/)
 [magento-forum](http://magento-forum.ru/topic/339/)
+
+## 5. Localization
+
+###### Translation
+
+* Create a new folder for your translation. For Spanish language it will be app/design/frontend/ultimo/default/locale/es_ES.
+* Copy translate.csv from app/design/frontend/ultimo/default/locale/en_US and paste it into created folder app/design/frontend/ultimo/default/locale/es_ES.
+* Open app/design/frontend/ultimo/default/locale/es_ES/translate.csv
+
+Set Translation to store View `System->COnfiguration->General->General->Locale Options->(Change Current Configuration Scope)`
+
+###### Language flag / Localization link
+
+link store view config `System->COnfiguration->General->Web->Url options->Add Store Code to Urls`
+
+Flag images (16x12 pixels, PNG format) should be uploaded to skin/frontend/ultimo/default/images/flags folder. Image names should be the same as the store view codes. E.g. if you have a store view with the code de, you will need to upload a flag image de.png to skin/frontend/ultimo/default/images/flags folder.
+
