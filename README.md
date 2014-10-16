@@ -213,3 +213,14 @@ Add blocks to cms blocks
 * home_main_sb_5
 
 than add to home page `{{block type="cms/block" block_id="foo_block"}}`
+
+2. Sitemaster_LinkPartners module
+
+3. Footer
+
+* `System > Configuration > Ultimo > Theme Settings > Default Magento Blocks`  remove footer_links
+* disable block_footer_row2_column5
+* footer ultimo settings
+* Slideshow settings available in the admin panel in `System > Configuration > Ultimo > Slideshow`.
+
+## 7. Install debug module
