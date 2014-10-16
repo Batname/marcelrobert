@@ -67,3 +67,5 @@ Open a web browser and navigate to your website (to the folder where you extract
 ## 4. Customization
 
 ###### Logo
+
+System > Configuration > Design > Header
