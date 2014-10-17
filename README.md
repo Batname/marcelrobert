@@ -242,5 +242,14 @@ And settings in:
 
 Add new template website.phtml for switch between websites
 
+4. Header
+
+* Disabling wishlist functionality
+⋅⋅* Go to the Admin interface (select the appropriate scope) and under System -> Configuration -> Customers -> Whishlist select “No” under the “Enabled” in the General options.
+* Disabling "Compare" Drop-down"
+⋅⋅* Admin panel: System > Configuration > Ultimo > Theme Settings
+⋅⋅* Show Text Label "Compare" – if set to No, label "Compare" will be hidden.
+⋅⋅* Display Block "Compare" in the Header – enable/disable "Compare" drop-down block in the header. If set to off
+* Create block websites in header
 
 ## 7. Install debug module

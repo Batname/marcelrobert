@@ -12,6 +12,7 @@
 			<magento_blocks>
 				<footer-copyright>1</footer-copyright>
                 <website_switcher>1</website_switcher>
+                <top_search>1</top_search>
 			</magento_blocks>
 		</ultimo>
 	</default>

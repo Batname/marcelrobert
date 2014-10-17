@@ -218,6 +218,8 @@
 			
 			<!-- Compare block -->
 			<block type="catalog/product_compare_sidebar" name="compare.mini" as="compareMini" template="catalog/product/compare/mini.phtml"/>
+
+            <block type="page/switch" name="website_switcher" as="website_switcher" template="page/switch/websites.phtml"/>
 			
 		</reference>
 		
@@ -308,7 +310,7 @@
                 <action method="setBlockId"><block_id>block_footer_copyright</block_id></action>
             </block>
 
-            <block type="page/switch" name="website_switcher" as="website_switcher" template="page/switch/websites.phtml"/>
+
 
 		</reference>
 		

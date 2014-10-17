@@ -1,7 +1,60 @@
 <?php
-$websites = Mage::app()->getWebsites();
+/**
+ * Language switcher
+ *
+ * @see Mage_Page_Block_Switch
+ *
+ */
+?>
 
-if (count($websites) > 1): ?>
+<?php $websites = Mage::app()->getWebsites(); ?>
+<?php if(count($websites) > 1): ?>
+
+    <?php
+    $currWebsiteName = '';
+    $currWebsiteCode = '';
+    $html = array();
+    $html[] = '<ul class="dropdown-content left-hand">';
+    foreach($websites as $website)
+    {
+        $WebsiteName = $this->htmlEscape($website->getName());
+        $WebsiteId = $website->getId();
+        $WebsiteCode = $website->getCode() ; //$storeCode = Mage::getStoreConfig('general/locale/code', $storeId);
+        $css = 'style="background-image:url('. $this->getSkinUrl('images/flags/'. $WebsiteCode .'.png') .');"';
+
+        if($WebsiteId == Mage::app()->getWebsite()->getId())
+        {
+            $currWebsiteName = $WebsiteName;
+            $currWebsiteCode = $WebsiteCode;
+            $html[] = '<li class="current"><span class="label dropdown-icon" '. $css .'>&nbsp;</span>'. $WebsiteName .'</li>';
+        }
+        else
+        {
+            $html[] = '<li><a href="'. $website->getDefaultStore()->getBaseUrl() .'"><span class="label dropdown-icon" '. $css .'>&nbsp;</span>'. $WebsiteName .'</a></li>';
+        }
+    }
+    $html[] = '</ul>';
+    ?>
+
+    <div class="lang-switcher dropdown">
+        <a href="#" class="dropdown-heading cover">
+            <span>
+                <span class="label dropdown-icon flag"
+                      style="background-image:url(<?php echo $this->getSkinUrl('images/flags/'. $currWebsiteCode .'.png'); ?>)">&nbsp;</span>
+                <?php /*?> <p class="label hide-below-1280"><?php echo $this->__('Language'); ?>:</p> <?php */?>
+                <span class="value"><?php echo $currWebsiteName; ?></span>
+                <span class="caret">&nbsp;</span>
+            </span>
+        </a>
+        <?php echo implode('', $html); ?>
+    </div>
+
+<?php endif; ?>
+
+<!--Standart method-->
+<?php
+$websites = Mage::app()->getWebsites();
+if (count($websites) > 1 && 1 == 2): ?>
     <div class="website-switcher">
         <label for="select-website"><?php echo $this->__('Select Store:') ?></label>
         <select id="select-website" title="<?php echo $this->__('Select Store') ?>" onchange="location.href=this.value">
