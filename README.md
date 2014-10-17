@@ -240,5 +240,7 @@ And settings in:
 `/var/www/marcelrobert.com/app/design/frontend/ultimo/main_marcelrobert/layout/local.xml`
 `/var/www/marcelrobert.com/app/design/frontend/ultimo/main_marcelrobert/template/page/html/footer.phtml`
 
+Add new template website.phtml for switch between websites
+
 
 ## 7. Install debug module

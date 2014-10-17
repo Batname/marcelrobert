@@ -14,6 +14,15 @@
 							<show_in_website>1</show_in_website>
 							<show_in_store>1</show_in_store>
 						</footer-copyright>
+                        <website_switcher translate="label">
+                            <label>Website Switcher</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </website_switcher>
 					</fields>
 				</magento_blocks>
 			</groups>

@@ -11,6 +11,7 @@
 		<ultimo>
 			<magento_blocks>
 				<footer-copyright>1</footer-copyright>
+                <website_switcher>1</website_switcher>
 			</magento_blocks>
 		</ultimo>
 	</default>

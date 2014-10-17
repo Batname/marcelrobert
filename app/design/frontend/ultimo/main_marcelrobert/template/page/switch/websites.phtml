@@ -1,0 +1,14 @@
+<?php
+$websites = Mage::app()->getWebsites();
+
+if (count($websites) > 1): ?>
+    <div class="website-switcher">
+        <label for="select-website"><?php echo $this->__('Select Store:') ?></label>
+        <select id="select-website" title="<?php echo $this->__('Select Store') ?>" onchange="location.href=this.value">
+            <?php foreach ($websites as $website): // print out each website name and code as a dropdown box item ?>
+                <?php $_selected = $website->getCode() == Mage::app()->getWebsite()->getCode() ? ' selected="selected"' : '' ?>
+                <option value="<?php echo $website->getDefaultStore()->getBaseUrl()?>"<?php echo $_selected ?>><?php echo $this->htmlEscape($website->getName()) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+<?php endif; ?>
