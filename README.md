@@ -223,4 +223,22 @@ than add to home page `{{block type="cms/block" block_id="foo_block"}}`
 * footer ultimo settings
 * Slideshow settings available in the admin panel in `System > Configuration > Ultimo > Slideshow`.
 
+* call newsletter in static block `{{block type="newsletter/subscribe" template="newsletter/subscribe.phtml"}}`
+
+* change position social link, change copyright
+
+4. Sitemaster_Ultimo module to theme settings all in one module
+
+`/var/www/marcelrobert.com/app/code/local/Sitemaster/Ultimo/etc/config.xml`
+
+`/var/www/marcelrobert.com/app/code/local/Sitemaster/Ultimo/etc/system.xml`
+
+`/var/www/marcelrobert.com/app/etc/modules/Sitemaster_All.xml`
+
+And settings in:
+
+`/var/www/marcelrobert.com/app/design/frontend/ultimo/main_marcelrobert/layout/local.xml`
+`/var/www/marcelrobert.com/app/design/frontend/ultimo/main_marcelrobert/template/page/html/footer.phtml`
+
+
 ## 7. Install debug module

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sitemaster_LinkPartners>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sitemaster_LinkPartners>
+        <Sitemaster_Ultimo>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sitemaster_Ultimo>
+    </modules>
+</config>
