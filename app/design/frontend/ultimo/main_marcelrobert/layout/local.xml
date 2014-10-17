@@ -220,6 +220,7 @@
 			<block type="catalog/product_compare_sidebar" name="compare.mini" as="compareMini" template="catalog/product/compare/mini.phtml"/>
 
             <block type="page/switch" name="website_switcher" as="website_switcher" template="page/switch/websites.phtml"/>
+
 			
 		</reference>
 		
@@ -235,7 +236,7 @@
 					
 			<!-- Remove checkout links -->
 			<remove name="checkout_cart_link" />
-			
+            <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/><position>10</position></action>
 		</reference>
 		
 		
@@ -339,6 +340,12 @@
 		</reference>
 		
 	</customer_logged_out>
+
+    <customer_logged_in>
+        <reference name="top.links">
+            <action method="addLink" translate="label title" module="customer"><label>Account</label><url helper="customer/getAccountUrl"/><title>Account</title><prepare/><urlParams/><position>100</position></action>
+        </reference>
+    </customer_logged_in>
 
 
 	<!-- PRODUCT TYPES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->

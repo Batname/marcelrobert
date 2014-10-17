@@ -313,6 +313,23 @@
 					<!-- Right column -->
 					<div class="hp-block user-menu clearer <?php echo $rightColGridClass; ?>">
 
+                        <div id="header-account" class="top-links links-wrapper-separators-left skip-content skip-content--style">
+
+                            <?php
+                            //Additional custom Top Links
+                            if ($tmpHtml = $this->getChildHtml('block_header_top_links2'))
+                                echo $tmpHtml;
+
+                            //Default Magento top links (page.xml)
+                            if ($theme->getCfg('magento_blocks/top_links'))
+                                echo $this->getChildHtml('topLinks');
+
+                            //Custom top links - override Magento's default Top Links
+                            if ($tmpHtml = $this->getChildHtml('block_header_top_links'))
+                                echo $tmpHtml;
+                            ?>
+                        </div> <!-- end: top-links -->
+
 						<?php if (isset($p['rightCol'][0])): ?>
 							<div id="header-search" class="search-wrapper-p0 <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $p['rightCol'][0]; ?></div>
 						<?php endif; ?>
@@ -343,22 +360,7 @@
 						
 						<?php if (isset($p['rightColBreak'][4])) echo $p['rightColBreak'][4]; ?>
 
-						<div id="header-account" class="top-links links-wrapper-separators-left skip-content skip-content--style">
 
-							<?php
-							//Additional custom Top Links
-							if ($tmpHtml = $this->getChildHtml('block_header_top_links2'))
-								echo $tmpHtml;
-
-							//Default Magento top links (page.xml)
-							if ($theme->getCfg('magento_blocks/top_links'))
-								echo $this->getChildHtml('topLinks');
-
-							//Custom top links - override Magento's default Top Links
-							if ($tmpHtml = $this->getChildHtml('block_header_top_links'))
-								echo $tmpHtml;
-							?>
-						</div> <!-- end: top-links -->
 
 						<?php if (isset($p['rightColBreak'][5])) echo $p['rightColBreak'][5]; ?>
 
