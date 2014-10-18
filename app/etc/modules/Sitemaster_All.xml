@@ -4,10 +4,28 @@
         <Sitemaster_LinkPartners>
             <active>true</active>
             <codePool>local</codePool>
+            <depends>
+                <Infortis_Infortis />
+                <Infortis_Brands />
+                <Infortis_CloudZoom />
+                <Infortis_Dataporter />
+                <Infortis_Ultimo />
+                <Infortis_UltraMegamenu />
+                <Infortis_UltraSlideshow />
+            </depends>
         </Sitemaster_LinkPartners>
         <Sitemaster_Ultimo>
             <active>true</active>
             <codePool>local</codePool>
+            <depends>
+                <Infortis_Infortis />
+                <Infortis_Brands />
+                <Infortis_CloudZoom />
+                <Infortis_Dataporter />
+                <Infortis_Ultimo />
+                <Infortis_UltraMegamenu />
+                <Infortis_UltraSlideshow />
+            </depends>
         </Sitemaster_Ultimo>
     </modules>
 </config>

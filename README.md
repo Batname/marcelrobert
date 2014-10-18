@@ -215,7 +215,7 @@ Add blocks to cms blocks
 than add to home page `{{block type="cms/block" block_id="foo_block"}}`
 
 2. Sitemaster_LinkPartners module
-
+* ok
 3. Footer
 
 * `System > Configuration > Ultimo > Theme Settings > Default Magento Blocks`  remove footer_links

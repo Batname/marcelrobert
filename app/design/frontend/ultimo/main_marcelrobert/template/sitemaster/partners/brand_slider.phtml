@@ -4,10 +4,10 @@
  */
 ?>
 <?php
-	$helper = Mage::helper('brands');
-	$brands = $this->getLoadedBrands();
+	$helper = Mage::helper('sitemaster_linkpartners');
+	$partners = $this->getLoadedBrands();
 ?>
-<?php if ($brands): ?>
+<?php if ($partners): ?>
 <?php
 	$sliderClasses = '';
 	$imgClasses = '';
@@ -90,7 +90,7 @@
 ?>
 <?php
 	//Attr. name
-	$brandAttrLabel = $this->getBrandAttributeTitle();
+	$partnerAttrLabel = $this->getBrandAttributeTitle();
 
 	//If lazy loading enabled
 	if ($lazy)
@@ -108,45 +108,50 @@
 <h3 class="section-title padding-right"><?php echo $this->getBlockName(); ?></h3>
 <div class="itemslider-wrapper brand-slider-wrapper slider-arrows1 slider-arrows1-pos-top-right slider-pagination1 slider-pagination1-centered">
 	<div id="<?php echo $sliderId; ?>" class="itemslider<?php if($sliderClasses) echo $sliderClasses; ?> brand-slider">
-	<?php foreach ($brands as $brand): ?>
+	<?php foreach ($partners as $partner): ?>
 		<?php
-		$brandPageUrl = $this->getBrandPageUrl($brand);
-		$brandImageUrl = $this->getBrandImageUrl($brand);
-		$brandDetailsHtml = '';
+		$partnerPageUrl = $this->getPartnerPageUrl($partner);
+		$partnerImageUrl = $this->getBrandImageUrl($partner);
+		$partnerDetailsHtml = '';
+
 
 		if (!$helper->isShowImage())
 		{
-			$brandDetailsHtml = '<span class="brand-name-wrapper"><span class="brand-name">'. $brand .'</span></span>';
+			$partnerDetailsHtml = '<span class="brand-name-wrapper"><span class="brand-name">'. $partner .'</span></span>';
 		}
 		else
 		{
-			if ($brandImageUrl)
+			if ($partnerImageUrl)
 			{
 				//If brand is a link (URL exists), image's "title" tag has to be empty (otherwise it will override link's "title" tag)
-				$brandPageUrl ? $imgTitle='' : $imgTitle="title=\"{$brandAttrLabel}: {$brand}\"";
+				$partnerPageUrl ? $imgTitle='' : $imgTitle="title=\"{$partnerAttrLabel}: {$brand}\"";
 
 				//Build image tag
-				$brandDetailsHtml = "<img {$imgClasses} {$srcAttribute}=\"{$brandImageUrl}\" alt=\"{$brand}\" {$imgTitle}/>";
+				$partnerDetailsHtml = "<img {$imgClasses} {$srcAttribute}=\"{$partnerImageUrl}\" alt=\"{$partner}\" {$imgTitle}/>";
 			}
 			else
 			{
 				if ($helper->isShowImageFallbackToText())
 				{
-					$brandDetailsHtml = '<span class="brand-name-wrapper"><span class="brand-name">'. $brand .'</span></span>';
+					$partnerDetailsHtml = '<span class="brand-name-wrapper"><span class="brand-name">'. $partner .'</span></span>';
 				}
 			}
 		}
 		?>
-		<?php if ($brandDetailsHtml): ?>
-
+		<?php if ($partnerDetailsHtml): ?>
 			<div class="item">
-				<?php if ($brandPageUrl): ?>
-					<a class="fade-on-hover" href="<?php echo $brandPageUrl; ?>" title="<?php echo $this->__('Click to see more products from %s', $brand); ?>"><?php echo $brandDetailsHtml; ?></a>
+				<?php if ($partnerPageUrl && $helper->getCfg('general/page_base_path') == 'partners'): ?>
+					<a class="fade-on-hover" href="<?php echo $partnerPageUrl; ?>" title="<?php echo $this->__('Click to see more products from %s', $partner); ?>" target="_blank">
+                        <?php echo $partnerDetailsHtml; ?>
+                    </a>
+                    <?php elseif ($partnerPageUrl && $helper->getCfg('general/page_base_path') == 'no_url'): ?>
+                    <a class="fade-on-hover" href="http://<?php echo $partner; ?>" title="<?php echo $this->__('Click to see more products from %s', $partner); ?>" target="_blank">
+                        <?php echo $partnerDetailsHtml; ?>
+                    </a>
 				<?php else: ?>
-					<?php echo $brandDetailsHtml; ?>
+					<?php echo $partnerDetailsHtml; ?>
 				<?php endif; ?>
 			</div>
-
 		<?php endif; ?>
 	<?php endforeach; ?>
 	</div> <!-- end: itemslider -->
