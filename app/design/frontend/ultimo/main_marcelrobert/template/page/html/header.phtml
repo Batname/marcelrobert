@@ -59,6 +59,7 @@
 	//--------------------------------------------------------------
 	$currencySwitcher = $this->getChildHtml('currency');
 	$languageSwitcher = $this->getChildHtml('store_language');
+    $websiteSwitcher = $this->getChildHtml('website_switcher');
 	$hasHeaderCollateral = ($currencySwitcher || $languageSwitcher) ? TRUE : FALSE;
 
 	//Skip links count
@@ -217,7 +218,7 @@
 				<div id="currency-switcher-wrapper-regular" class="item item-right"><?php echo $currencySwitcher; ?></div>
 				<div id="lang-switcher-wrapper-regular" class="item item-right"><?php echo $languageSwitcher; ?></div>
                 <?php if ($theme->getCfg('magento_blocks/website_switcher') && $tmp = $this->getChildHtml('website_switcher')): ?>
-                    <div class="item item-right"><?php echo $tmp; ?></div>
+                    <div id="website-switcher-wrapper-regular" class="item item-right"><?php echo $tmp; ?></div>
                 <?php endif; ?>
 				<?php if ($tmpHtml = $this->getChildHtml('block_header_top_right2')): ?>
 					<div class="block_header_top_right2 item item-right"><?php echo $tmpHtml; ?></div>
@@ -237,13 +238,21 @@
 					<?php if ($mobileHeaderMode && $hasHeaderCollateral): ?>
 						<!-- Mobile header collaterals -->
 						<div id="header-collateral" class="header-collateral">
+                            <?php echo $websiteSwitcher; ?>
 							<?php echo $languageSwitcher; ?>
 							<?php echo $currencySwitcher; ?>
 						</div>
 					<?php endif; ?>
 
+                    <!-- Mobile logo -->
+                    <div class="logo-wrapper--mobile">
+                        <a class="logo logo--mobile" href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>">
+                            mobile
+                        </a>
+                    </div>
+
 					<!-- Mobile logo -->
-					<div class="logo-wrapper--mobile">
+					<div class="logo-wrapper--mobile feature centered">
 						<a class="logo logo--mobile" href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>">
 							<img src="<?php echo (($small = $this->getLogoSrcSmall()) ? $small : $this->getLogoSrc()); ?>" alt="<?php echo $this->getLogoAlt() ?>" />
 						</a>
@@ -284,22 +293,27 @@
 					<div id="mini-cart-wrapper-mobile"></div>
 
 					<!-- Left column -->
-					<div class="hp-block user-menu clearer <?php echo $leftColGridClass; ?>">
-                        <?php if ($tmpHtml = $this->getChildHtml('block_header_top_left')): ?>
-                            <div class="block_header_top_left item item-left"><?php echo $tmpHtml; ?></div>
-                        <?php endif; ?>
-                        <div class="line-break-after"></div>
-                        <?php if ($tmpHtml = $this->getChildHtml('block_header_top_left2')): ?>
-                            <div class="block_header_top_left2 item item-left"><?php echo $tmpHtml; ?></div>
-                        <?php endif; ?>
+					<div class="hp-block <?php echo $leftColGridClass; ?>">
+
+                        <div class="logo-wrapper logo-wrapper--regular">
+                            <?php if ($tmpHtml = $this->getChildHtml('block_header_top_left')): ?>
+                               <div class=""><?php echo $tmpHtml; ?></div>
+                            <?php endif; ?>
+                            <div class="line-break-after"></div>
+                            <?php if ($tmpHtml = $this->getChildHtml('block_header_top_left2')): ?>
+                                <div class=""><?php echo $tmpHtml; ?></div>
+                            <?php endif; ?>
+                        </div>
+
                         <?php if ($theme->getCfg('magento_blocks/top_search') && $this->getChildHtml('topSearch')): ?>
-                            <div id="header-search" class="hp-block search-wrapper-centered clearer <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $this->getChildHtml('topSearch'); ?></div>
+                            <div id="header-search"
+                                 class="hp-block search-wrapper-centered clearer <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $this->getChildHtml('topSearch'); ?></div>
                         <?php endif; ?>
 					</div>
 
 					<!-- Central column -->
 					<?php if ($centralColUnits): ?>
-					<div class="hp-block clearer <?php echo $centralColGridClass; ?> skip-content skip-content--style">
+					<div class="hp-block clearer feature centered <?php echo $centralColGridClass; ?> skip-content skip-content--style">
                         <div class="logo-wrapper logo-wrapper--regular">
                             <?php if ($this->getIsHomePage()): ?>
                                 <h1 class="logo logo--regular"><strong><?php echo $this->getLogoAlt() ?></strong><a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>"><img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /></a></h1>
@@ -310,8 +324,9 @@
 					</div>
 					<?php endif; ?>
 
-					<!-- Right column -->
-					<div class="hp-block user-menu clearer <?php echo $rightColGridClass; ?>">
+
+                    <!-- Right column -->
+                    <div class="hp-block user-menu clearer <?php echo $rightColGridClass; ?>">
 
                         <div id="header-account" class="top-links links-wrapper-separators-left skip-content skip-content--style">
 
@@ -330,45 +345,45 @@
                             ?>
                         </div> <!-- end: top-links -->
 
-						<?php if (isset($p['rightCol'][0])): ?>
-							<div id="header-search" class="search-wrapper-p0 <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $p['rightCol'][0]; ?></div>
-						<?php endif; ?>
+                        <?php if (isset($p['rightCol'][0])): ?>
+                            <div id="header-search" class="search-wrapper-p0 <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $p['rightCol'][0]; ?></div>
+                        <?php endif; ?>
 
-						<?php if (isset($p['rightColBreak'][0])) echo $p['rightColBreak'][0]; ?>
+                        <?php if (isset($p['rightColBreak'][0])) echo $p['rightColBreak'][0]; ?>
 
-						<?php if ($miniCartHtml): //Mini cart ?>
-							<div id="mini-cart-wrapper-regular">
-								<?php echo $miniCartHtml; ?>
-							</div>
-						<?php endif; ?>
+                        <?php if ($miniCartHtml): //Mini cart ?>
+                            <div id="mini-cart-wrapper-regular">
+                                <?php echo $miniCartHtml; ?>
+                            </div>
+                        <?php endif; ?>
 
-						<?php if (isset($p['rightColBreak'][1])) echo $p['rightColBreak'][1]; ?>
+                        <?php if (isset($p['rightColBreak'][1])) echo $p['rightColBreak'][1]; ?>
 
-						<?php if (isset($p['rightCol'][1])): ?>
-							<div id="header-search" class="search-wrapper-p1 <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $p['rightCol'][1]; ?></div>
-						<?php endif; ?>
-						
-						<?php if (isset($p['rightColBreak'][2])) echo $p['rightColBreak'][2]; ?>
+                        <?php if (isset($p['rightCol'][1])): ?>
+                            <div id="header-search" class="search-wrapper-p1 <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $p['rightCol'][1]; ?></div>
+                        <?php endif; ?>
 
-						<?php echo $miniCompareHtml; //Mini compare ?>
+                        <?php if (isset($p['rightColBreak'][2])) echo $p['rightColBreak'][2]; ?>
 
-						<?php if (isset($p['rightColBreak'][3])) echo $p['rightColBreak'][3]; ?>
+                        <?php echo $miniCompareHtml; //Mini compare ?>
 
-						<?php if (isset($p['rightCol'][2])): ?>
-							<div id="header-search" class="search-wrapper-p2 <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $p['rightCol'][2]; ?></div>
-						<?php endif; ?>
-						
-						<?php if (isset($p['rightColBreak'][4])) echo $p['rightColBreak'][4]; ?>
+                        <?php if (isset($p['rightColBreak'][3])) echo $p['rightColBreak'][3]; ?>
+
+                        <?php if (isset($p['rightCol'][2])): ?>
+                            <div id="header-search" class="search-wrapper-p2 <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $p['rightCol'][2]; ?></div>
+                        <?php endif; ?>
+
+                        <?php if (isset($p['rightColBreak'][4])) echo $p['rightColBreak'][4]; ?>
 
 
 
-						<?php if (isset($p['rightColBreak'][5])) echo $p['rightColBreak'][5]; ?>
+                        <?php if (isset($p['rightColBreak'][5])) echo $p['rightColBreak'][5]; ?>
 
-						<?php if (isset($p['rightCol'][3])): ?>
-							<div id="header-search" class="search-wrapper-p3 <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $p['rightCol'][3]; ?></div>
-						<?php endif; ?>
+                        <?php if (isset($p['rightCol'][3])): ?>
+                            <div id="header-search" class="search-wrapper-p3 <?php echo $searchClasses; ?> skip-content skip-content--style"><?php echo $p['rightCol'][3]; ?></div>
+                        <?php endif; ?>
 
-					</div> <!-- end: user-menu -->
+                    </div> <!-- end: user-menu -->
 					
 				</div> <!-- end: v-grid-container -->
 

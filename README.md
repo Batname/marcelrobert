@@ -251,5 +251,6 @@ Add new template website.phtml for switch between websites
 ⋅⋅* Show Text Label "Compare" – if set to No, label "Compare" will be hidden.
 ⋅⋅* Display Block "Compare" in the Header – enable/disable "Compare" drop-down block in the header. If set to off
 * Create block websites in header
+* changes in `/var/www/marcelrobert.com/app/design/frontend/ultimo/main_marcelrobert/template/page/html/header.phtml`
 
 ## 7. Install debug module
