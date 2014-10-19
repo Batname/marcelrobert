@@ -73,7 +73,7 @@
 ?>
 
 <div class="category-products">
-    <?php if (!$hideToolbar): ?>
+    <?php if (!$hideToolbar && $theme->getCfg('magento_blocks/display_toolbar')): ?>
         <?php echo $this->getToolbarHtml() ?>
     <?php endif; ?>
     <?php if($this->getMode()!='grid'): //List mode ?>
@@ -292,7 +292,7 @@
     </ul>
     <?php endif; //end: if grid mode ?>
 
-    <?php if (!$hideToolbar): ?>
+    <?php if (!$hideToolbar && $theme->getCfg('magento_blocks/display_toolbar')): ?>
         <div class="toolbar-bottom">
             <?php echo $this->getToolbarHtml() ?>
         </div>

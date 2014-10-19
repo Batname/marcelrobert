@@ -13,7 +13,11 @@
 				<footer-copyright>1</footer-copyright>
                 <website_switcher>1</website_switcher>
                 <top_search>1</top_search>
+                <display_toolbar>0</display_toolbar>
 			</magento_blocks>
+            <product_page>
+                <addtolinks>1</addtolinks>
+            </product_page>
 		</ultimo>
 	</default>
 </config>

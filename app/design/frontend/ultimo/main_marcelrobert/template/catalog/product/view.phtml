@@ -209,9 +209,9 @@
 				<?php endif; ?>
 			<?php endif;?>
 			
-			<?php if ($addtoLinksHtml = $this->getChildHtml('addto')): //compare, wishlist, send to friend ?>
+			<?php if ($this->getChildHtml('addto') && $theme->getCfg('product_page/addtolinks')): //compare, wishlist, send to friend ?>
 				<div class="action-box clearer">
-					<?php echo $addtoLinksHtml; ?>
+					<?php echo $this->getChildHtml('addto'); ?>
 				</div>
 			<?php endif; ?>
 			
@@ -227,7 +227,7 @@
 
 		</div> <!-- end: product-shop -->
 		
-		<?php if ($secondaryColUnits): //(!empty($secondaryColUnits)): ?>
+		<?php if ($secondaryColUnits && $imgColUnits+$primaryColUnits <=10 ): //(!empty($secondaryColUnits)): ?>
 			<div class="product-secondary-column <?php echo $secondaryColGridClass; ?> custom-sidebar-right">
 				<div class="inner">
 
@@ -240,19 +240,19 @@
                     <?php if ($tmpHtml = $this->getChildHtml('product_secondary_top_placeholder_linkpartners')): //Placeholder for extensions ?>
                         <div class="margin-bottom"><?php echo $tmpHtml; ?></div>
                     <?php endif; ?>
-					
+
 					<?php if (isset($p['secondaryCol'][0])): ?>
 						<?php echo $p['secondaryCol'][0]; ?>
 					<?php endif; ?>
-					
+
 					<?php if ($tmpHtml = $this->getChildHtml('block_product_secondary_bottom')): ?>
 						<div class="feature-wrapper margin-top block_product_secondary_bottom"><?php echo $tmpHtml; ?></div>
 					<?php endif; ?>
-					
+
 					<?php if (isset($p['secondaryCol'][1])): ?>
 						<div class="margin-top"><?php echo $p['secondaryCol'][1]; ?></div>
 					<?php endif; ?>
-					
+
 					<?php /*?>
 					<?php if (isset($section['related'])): ?>
 						<div class="margin-top"><?php echo $section['related']; ?></div>

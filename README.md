@@ -251,8 +251,14 @@ Add new template website.phtml for switch between websites
 ⋅⋅* Show Text Label "Compare" – if set to No, label "Compare" will be hidden.
 ⋅⋅* Display Block "Compare" in the Header – enable/disable "Compare" drop-down block in the header. If set to off
 * Create block websites in header
-* changes in `/var/www/marcelrobert.com/app/design/frontend/ultimo/main_marcelrobert/template/page/html/header.phtml`
+* changes in `app/design/frontend/ultimo/main_marcelrobert/template/page/html/header.phtml`
 
 5. Catalog-Category-View
+* Disabling RSS In the Configuration panel on the left, under Catalog, select RSS Feeds.
+* Settings in layout & phtml
+
+6. Catalog-Product-View
+*  `<validate>validate-number validate-number-range number-range-2-8</validate>` `in /var/www/marcelrobert.com/app/code/local/Infortis/Ultimo/etc/config.xml`
+than `$imgColUnits+$primaryColUnits <=10` in `app/design/frontend/ultimo/main_marcelrobert/template/catalog/product/view.phtml`
 
 ## 7. Install debug module
