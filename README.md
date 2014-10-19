@@ -253,4 +253,6 @@ Add new template website.phtml for switch between websites
 * Create block websites in header
 * changes in `/var/www/marcelrobert.com/app/design/frontend/ultimo/main_marcelrobert/template/page/html/header.phtml`
 
+5. Catalog-Category-View
+
 ## 7. Install debug module
