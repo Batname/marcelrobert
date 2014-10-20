@@ -328,6 +328,8 @@
         <div class="grid12-12"><?php echo $this->getChildHtml('product_video') ?></div>
     </div>
 
+    <!-- start: $productinfo-column -->
+
     <?php $productinfo = $theme->getCfg('product_page/productinfo') ?>
 
     <?php if ($productinfo == 2 || $productinfo == 3): ?>
@@ -379,6 +381,12 @@
 		
 		<?php echo $this->getChildHtml('product_additional_data') ?>
 	</div> <!-- end: box-tabs -->
+    <?php endif; ?>
+
+    <!-- finish: $productinfo-column -->
+
+    <?php if ($tmpHtml = $this->getChildHtml('block_product_primary_block2')): ?>
+        <div class="feature-wrapper top-border block_product_primary_block2"><?php echo $tmpHtml; ?></div>
     <?php endif; ?>
 	
 	

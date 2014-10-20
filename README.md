@@ -290,5 +290,15 @@ set `<reference name="product.info">
 
 *  Disable related `System > Configuration > Ultimo > Theme Settings`
 
+* add Jquery to template         `<script type="text/javascript">
+                                     //<![CDATA[
+                                     jQuery(function ($) {
+                                         $('#tabreviews').click(function() {
+                                             $( "#formreviews" ).toggle("slow");
+                                         });
+                                     });
+                                     //]]>
+                                 </script>`
+
 
 ## 7. Install debug module

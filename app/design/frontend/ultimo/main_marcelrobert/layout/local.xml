@@ -466,6 +466,10 @@
                 <action method="setBlockId"><block_id>block_product_primary_block1</block_id></action>
             </block>
 
+            <block type="cms/block" name="block_product_primary_block2">
+                <action method="setBlockId"><block_id>block_product_primary_block2</block_id></action>
+            </block>
+
             <reference name="product.info.options.wrapper.bottom">
                 <action method="unsetChild"><name>product.info.addtocart</name></action>
             </reference>
