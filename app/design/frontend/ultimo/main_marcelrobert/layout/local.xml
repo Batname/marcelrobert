@@ -620,7 +620,7 @@
 	<catalogsearch_result_index>
 	
 		<reference name="root">
-			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
 		</reference>
 		
 		<reference name="left">
@@ -630,7 +630,12 @@
 			
 			<!-- Remove currency switcher from sidebar -->
 			<action method="unsetChild"><name>currency</name></action>
-		</reference>
+            <action method="unsetChild"><name>catalogsearch.leftnav</name></action>
+        </reference>
+
+        <reference name="content">
+            <action method="insert"><name>catalogsearch.leftnav</name></action>
+        </reference>
 	
 	</catalogsearch_result_index>
 	

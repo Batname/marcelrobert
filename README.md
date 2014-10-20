@@ -299,6 +299,17 @@ set `<reference name="product.info">
                                      });
                                      //]]>
                                  </script>`
+* search page
 
+* set new search module           `var_dump($queryText);
+                if ($queryText != 'bat') {
+                    if ($where != '') {
+                        $select->where($where);
+                    }
+                }`
+
+in `/var/www/pro-ex/app/code/core/Mage/CatalogSearch/Model/Resource/Fulltext.php`
+
+* unsetChild and set 1 column in search
 
 ## 7. Install debug module

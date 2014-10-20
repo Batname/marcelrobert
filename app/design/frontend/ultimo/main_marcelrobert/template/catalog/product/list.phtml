@@ -73,7 +73,7 @@
 ?>
 
 <div class="category-products">
-    <?php if (!$hideToolbar && $theme->getCfg('magento_blocks/display_toolbar')): ?>
+    <?php if (!$hideToolbar && $theme->getCfg('magento_blocks/display_toolbar') && (Mage::app()->getRequest()->getRouteName() != 'catalog')): ?>
         <?php echo $this->getToolbarHtml() ?>
     <?php endif; ?>
     <?php if($this->getMode()!='grid'): //List mode ?>
@@ -292,7 +292,7 @@
     </ul>
     <?php endif; //end: if grid mode ?>
 
-    <?php if (!$hideToolbar && $theme->getCfg('magento_blocks/display_toolbar')): ?>
+    <?php if (!$hideToolbar && $theme->getCfg('magento_blocks/display_toolbar') && (Mage::app()->getRequest()->getRouteName() != 'catalog')): ?>
         <div class="toolbar-bottom">
             <?php echo $this->getToolbarHtml() ?>
         </div>
@@ -303,3 +303,4 @@
 <?php if ($_collectionSize && $tmpHtml = $this->getChildHtml('block_category_below_collection')): ?>
     <div class="block_category_below_collection std"><?php echo $tmpHtml; ?></div>
 <?php endif; ?>
+
