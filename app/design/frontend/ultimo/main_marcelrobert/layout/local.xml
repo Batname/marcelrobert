@@ -404,6 +404,8 @@
 		</reference>
 		
 		<reference name="product.info">
+
+            <!--<remove name="product.info.options.wrapper.bottom"/>-->
 		
 			<!-- Change review summary template: removed links to review page. IMPORTANT: new template file. -->
 			<action method="addReviewSummaryTemplate"><type>default</type><template>review/helper/summary_nolinks.phtml</template></action>
@@ -413,7 +415,11 @@
 			<block type="catalog/product_view_media" name="product.info.media" as="media" template="catalog/product/view/media.phtml"/>
 			-->
 
-			<!-- Add tabs -->
+            <block type="review/product_view_list" name="tabreviews" as="tabreviews" template="review/product/view/list.phtml"/>
+            <block type="review/form" name="formreviews" as="formreviews" template="review/form.phtml"/>
+
+
+            <!-- Add tabs -->
 			<block type="catalog/product_view_tabs" name="product.info.tabs" as="info_tabs" template="catalog/product/view/tabs.phtml" >
 				<action method="addTab" translate="title" module="catalog"><alias>description</alias><title>Product Description</title><block>catalog/product_view_description</block><template>catalog/product/view/description.phtml</template></action>
 				<action method="addTab" translate="title" module="payment"><alias>product.info.additional.recurring.schedule</alias><title>Recurring Profile</title><block>payment/catalog_product_view_profile</block><template>payment/catalog/product/view/profile/schedule.phtml</template></action>
@@ -455,10 +461,24 @@
 			<block type="cms/block" name="block_product_replace_upsell">
 				<action method="setBlockId"><block_id>block_product_replace_upsell</block_id></action>
 			</block>
-			
+
+            <block type="cms/block" name="block_product_primary_block1">
+                <action method="setBlockId"><block_id>block_product_primary_block1</block_id></action>
+            </block>
+
+            <reference name="product.info.options.wrapper.bottom">
+                <action method="unsetChild"><name>product.info.addtocart</name></action>
+            </reference>
+
 		</reference> <!-- end: product.info -->
 
-		<!-- Alerts -->
+
+
+        <reference name="footer">
+            <action method="insert"><block>product.info</block></action>
+        </reference>
+
+        <!-- Alerts -->
 		<reference name="productalert.price">
 			<action method="setIconName"><value>alarm</value></action>
 		</reference>

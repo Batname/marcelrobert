@@ -1,11 +1,28 @@
 <?xml version="1.0"?>
 
 <config>
-	<modules>
-		<Sitemaster_Ultimo>
-			<version>0.0.1</version>
-		</Sitemaster_Ultimo>
-	</modules>
+    <modules>
+        <Sitemaster_Ultimo>
+            <version>0.0.1</version>
+        </Sitemaster_Ultimo>
+    </modules>
+    <global>
+        <blocks>
+            <sitemaster_ultimo>
+                <class>Sitemaster_Ultimo_Block</class>
+            </sitemaster_ultimo>
+        </blocks>
+        <helpers>
+            <sitemaster_ultimo>
+                <class>Sitemaster_Ultimo_Helper</class>
+            </sitemaster_ultimo>
+        </helpers>
+        <models>
+            <sitemaster_ultimo>
+                <class>Sitemaster_Ultimo_Model</class>
+            </sitemaster_ultimo>
+        </models>
+    </global>
 	<default>
 		<!-- Theme settings -->
 		<ultimo>
@@ -17,6 +34,7 @@
 			</magento_blocks>
             <product_page>
                 <addtolinks>1</addtolinks>
+                <productinfo>1</productinfo>
             </product_page>
 		</ultimo>
 	</default>

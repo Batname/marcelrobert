@@ -165,6 +165,27 @@
 			</div>
 			
 			<?php echo $this->getReviewsSummaryHtml($_product, false, true); //reviews ?>
+
+
+            <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                <?php if ($container1_html = $this->getChildChildHtml('container1', '', true, true)): ?>
+                    <div class="container1-wrapper"><?php echo $container1_html; ?></div>
+                <?php endif; ?>
+            <?php endif;?>
+
+
+            <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                <div class="product-type-data<?php echo $productTypeClasses; ?>"><?php echo $this->getChildHtml('product_type_data'); ?></div>
+                <?php echo $this->getTierPriceHtml(); ?>
+                <meta itemprop="priceCurrency" content="<?php echo Mage::app()->getStore()->getCurrentCurrencyCode(); ?>" />
+            </div>
+
+            <?php if ($this->hasOptions() || $_product->isSaleable()): //add to cart when no options ?>
+                <div class="add-to-box">
+                    <?php echo $this->getChildHtml('addtocart') ?>
+                </div>
+                <?php echo $this->getChildHtml('extra_buttons') ?>
+            <?php endif; ?>
 			
 			<?php if ($_product->getShortDescription()): ?>
 				<div class="short-description">
@@ -188,26 +209,8 @@
 				<div class="extrahint-wrapper"><?php echo $extrahint_html; ?></div>
 			<?php endif; ?>
 			
-			<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-				<div class="product-type-data<?php echo $productTypeClasses; ?>"><?php echo $this->getChildHtml('product_type_data'); ?></div>
-				<?php echo $this->getTierPriceHtml(); ?>
-				<meta itemprop="priceCurrency" content="<?php echo Mage::app()->getStore()->getCurrentCurrencyCode(); ?>" />
-			</div>
 
-			<?php if (!$this->hasOptions()): //add to cart when no options ?>
-				<?php if($_product->isSaleable()): ?>
-					<div class="add-to-box">
-						<?php echo $this->getChildHtml('addtocart') ?>
-					</div>
-				<?php endif; ?>
-				<?php echo $this->getChildHtml('extra_buttons') ?>
-			<?php endif; ?>
 
-			<?php if ($_product->isSaleable() && $this->hasOptions()): ?>
-				<?php if ($container1_html = $this->getChildChildHtml('container1', '', true, true)): ?>
-					<div class="container1-wrapper"><?php echo $container1_html; ?></div>
-				<?php endif; ?>
-			<?php endif;?>
 			
 			<?php if ($this->getChildHtml('addto') && $theme->getCfg('product_page/addtolinks')): //compare, wishlist, send to friend ?>
 				<div class="action-box clearer">
@@ -220,6 +223,10 @@
 			<?php if ($tmpHtml = $this->getChildHtml('block_product_primary_bottom')): ?>
 				<div class="feature-wrapper top-border block_product_primary_bottom"><?php echo $tmpHtml; ?></div>
 			<?php endif; ?>
+
+            <?php if ($tmpHtml = $this->getChildHtml('block_product_primary_block1')): ?>
+                <div class="feature-wrapper top-border block_product_primary_block1"><?php echo $tmpHtml; ?></div>
+            <?php endif; ?>
 			
 			<?php if ($tmpHtml = $this->getChildHtml('product_primary_bottom_placeholder')): //Placeholder for extensions ?>
 				<div class="feature-wrapper top-border"><?php echo $tmpHtml; ?></div>
@@ -316,21 +323,63 @@
 		}.bind(productAddToCartForm);
 	//]]>
 	</script>
-	
+
+    <div class="grid-container feature centered non-box-tabs">
+        <div class="grid12-12"><?php echo $this->getChildHtml('product_video') ?></div>
+    </div>
+
+    <?php $productinfo = $theme->getCfg('product_page/productinfo') ?>
+
+    <?php if ($productinfo == 2 || $productinfo == 3): ?>
+    <div class="grid-container feature centered">
+        <div class="grid12-12"><?php echo $this->getChildHtml('tabreviews') ?></div>
+
+        <a class="" href="#jQuery" id="tabreviews" title="<?php echo $this->__('Only %s left', ($this->getStockQty())) ?>">
+            <span class="label"><?php echo $this->__('Write your review') ?><div class="caret">&nbsp;</div></span>
+        </a>
+
+        <div class="grid12-12">
+            <div id="formreviews" class="no-display">
+            <?php echo $this->getChildHtml('formreviews') ?>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            //<![CDATA[
+            jQuery(function ($) {
+                $('#tabreviews').click(function() {
+                    $( "#formreviews" ).toggle("slow");
+                });
+            });
+            //]]>
+        </script>
+
+    </div>
+    <?php endif; ?>
+
+    <?php if ($productinfo == 1 || $productinfo == 3): ?>
 	<div class="box-additional box-tabs <?php echo $collatPrimaryColGridClass; ?>">
 		<?php $info_tabs_html = trim($this->getChildHtml('info_tabs'));
 			if ($info_tabs_html) echo $info_tabs_html; ?>
 
 		<?php //Open the "Reviews" tab, when "X Review(s)" or "Be the first to review this product" links are clicked ?>
 		<script type="text/javascript">
-		//<![CDATA[
-			jQuery(function($){$("#goto-reviews, #goto-reviews-form").click(function(){if($("#product-tabs").hasClass("accor")){$("#product-tabs .tabs-panels").data("tabs").click($(".tabs-panels .acctab").index($("#acctab-tabreviews")))}else{$("#product-tabs .tabs").data("tabs").click($("#tab-tabreviews").index())}})});
-		//]]>
+            //<![CDATA[
+            jQuery(function ($) {
+                $("#goto-reviews, #goto-reviews-form").click(function () {
+                    if ($("#product-tabs").hasClass("accor")) {
+                        $("#product-tabs .tabs-panels").data("tabs").click($(".tabs-panels .acctab").index($("#acctab-tabreviews")))
+                    } else {
+                        $("#product-tabs .tabs").data("tabs").click($("#tab-tabreviews").index())
+                    }
+                })
+            });
+            //]]>
 		</script>
 		
 		<?php echo $this->getChildHtml('product_additional_data') ?>
 	</div> <!-- end: box-tabs -->
-	
+    <?php endif; ?>
 	
 	
 	<?php if (isset($p['collatSecondaryCol'])): ?>
@@ -344,3 +393,4 @@
 	<?php endif; ?>
 	
 </div> <!-- end: product-view -->
+

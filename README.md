@@ -261,4 +261,34 @@ Add new template website.phtml for switch between websites
 *  `<validate>validate-number validate-number-range number-range-2-8</validate>` `in /var/www/marcelrobert.com/app/code/local/Infortis/Ultimo/etc/config.xml`
 than `$imgColUnits+$primaryColUnits <=10` in `app/design/frontend/ultimo/main_marcelrobert/template/catalog/product/view.phtml`
 
+*  Unset UnsetChildren in layout.xml
+        `<!--<reference name="product.info">-->
+            <!--<action method="unsetChild">-->
+                <!--<block>info_tabs</block>-->
+            <!--</action>-->
+            <!--<action method="unsetChild">-->
+                <!--<block>upsell_products</block>-->
+            <!--</action>-->
+        <!--</reference>-->`
+
+            `<reference name="product.info">
+                <reference name="product.info.options.wrapper.bottom">
+                    <action method="unsetChild"><name>product.info.addtocart</name></action>
+                </reference>
+            </reference>`
+
+*  Create video static block
+set `<reference name="product.info">
+      <block type="cms/block" name="product_static_block_1" as="product_video">
+        <action method="setBlockId"><id>product_static_block_1</id></action>
+     </block>
+    </reference>`
+
+ and in template     `<div class="grid-container feature centered">
+                         <div class="grid12-12"><?php echo $this->getChildHtml('product_video') ?></div>
+                     </div>`
+
+*  Disable related `System > Configuration > Ultimo > Theme Settings`
+
+
 ## 7. Install debug module
