@@ -36,6 +36,9 @@
                 <addtolinks>1</addtolinks>
                 <productinfo>1</productinfo>
             </product_page>
+            <checkout_page>
+                <shipping>1</shipping>
+            </checkout_page>
 		</ultimo>
 	</default>
 </config>

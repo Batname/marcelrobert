@@ -312,4 +312,6 @@ in `/var/www/pro-ex/app/code/core/Mage/CatalogSearch/Model/Resource/Fulltext.php
 
 * unsetChild and set 1 column in search
 
+7. checkout-cart-index
+
 ## 7. Install debug module
