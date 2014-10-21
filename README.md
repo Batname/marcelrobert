@@ -336,4 +336,6 @@ in /var/www/marcelrobert.com/skin/frontend/ultimo/main_marcelrobert/js/opcheckou
 in /var/www/marcelrobert.com/skin/frontend/ultimo/main_marcelrobert/js/opcheckout.js 50-63
             `Event.observe($('top-'+section.readAttribute('id')), 'click', this._onTopSectionClick.bindAsEventListener(this));`
 
+9. Login & Ajax modules
+
 ## 7. Install debug module

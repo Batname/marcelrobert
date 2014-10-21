@@ -40,5 +40,23 @@
                 <Infortis_UltraSlideshow />
             </depends>
         </Sitemaster_Emptysearch>
+        <Sitemaster_EasyAjax>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sitemaster_EasyAjax>
+        <Sitemaster_AjaxCart>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Sitemaster_EasyAjax />
+            </depends>
+        </Sitemaster_AjaxCart>
+        <Sitemaster_AjaxLogin>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Sitemaster_EasyAjax />
+            </depends>
+        </Sitemaster_AjaxLogin>
     </modules>
 </config>

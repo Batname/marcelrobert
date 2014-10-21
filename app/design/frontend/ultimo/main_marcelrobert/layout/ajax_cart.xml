@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/ajax_cart.js</name></action>
+            <action method="addItem"><type>skin_css</type><name>css/ajax_cart.css</name></action>
+        </reference>
+        <reference name="before_body_end">
+            <block name="ajax_cart_modal" type="core/template" template="ajax_cart/modal.phtml" />
+        </reference>
+    </default>
+    <sitemaster_ajax_checkout_cart_updatepost>
+        <update handle="checkout_cart_index" />
+    </sitemaster_ajax_checkout_cart_updatepost>
+    <sitemaster_ajax_checkout_cart_delete>
+        <update handle="checkout_cart_index" />
+    </sitemaster_ajax_checkout_cart_delete>
+</layout>

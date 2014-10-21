@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <global>
+        <models>
+            <sitemasterAjax>
+                <class>Sitemaster_EasyAjax_Model</class>
+            </sitemasterAjax>
+            <core>
+                <rewrite>
+                    <message>Sitemaster_EasyAjax_Model_Core_Message</message>
+                    <message_collection>Sitemaster_EasyAjax_Model_Core_Message_Collection</message_collection>
+                </rewrite>
+            </core>
+        </models>
+    </global>
+    <frontend>
+        <events>
+            <controller_action_layout_render_before>
+                <observers>
+                    <sitemasterAjax_get_json>
+                        <class>sitemasterAjax/observer</class>
+                        <method>getJson</method>
+                    </sitemasterAjax_get_json>
+                </observers>
+            </controller_action_layout_render_before>
+            <controller_response_redirect>
+                <observers>
+                    <sitemasterAjax_get_json>
+                        <class>sitemasterAjax/observer</class>
+                        <method>getJson</method>
+                    </sitemasterAjax_get_json>
+                </observers>
+            </controller_response_redirect>
+            <http_response_send_before>
+                <observers>
+                    <sitemasterAjax_get_json>
+                        <class>sitemasterAjax/observer</class>
+                        <method>getJson</method>
+                    </sitemasterAjax_get_json>
+                </observers>
+            </http_response_send_before>
+        </events>
+        <layout>
+            <updates>
+                <sitemasterAjax>
+                    <file>sitemaster_ajax.xml</file>
+                </sitemasterAjax>
+            </updates>
+        </layout>
+    </frontend>
+    <!--<default>
+        <web>
+            <routers>
+                <json>
+                    <area>frontend</area>
+                    <class>Sitemaster_EasyAjax_Controller_Varien_Router_Json</class>
+                </json>
+            </routers>
+        </web>
+    </default>-->
+</config>
+

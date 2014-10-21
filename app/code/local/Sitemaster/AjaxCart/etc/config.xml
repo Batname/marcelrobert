@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <frontend>
+        <layout>
+            <updates>
+                <sitemaster_ajaxCart>
+                    <file>ajax_cart.xml</file>
+                </sitemaster_ajaxCart>
+            </updates>
+        </layout>
+    </frontend>
+</config>

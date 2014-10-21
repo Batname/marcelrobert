@@ -1,0 +1,8 @@
+.popup { background:#fff; border:1px solid #aaa; margin:12px 0 0; position:absolute; -moz-box-shadow:0 0 6px #ccc; -webkit-box-shadow:0 0 6px #ccc; box-shadow:0 0 6px #ccc; text-align:left; width:300px; z-index:100; }
+.popup-heading { background:#d9e5ee; border-bottom:1px solid #ccc; padding:5px 30px 5px 10px; }
+.popup-heading h2 { font-size:16px; margin:0; text-shadow:0 1px 0 #f6f6f6; overflow:hidden; white-space:nowrap; word-wrap:break-word; text-align:left; text-overflow:ellipsis; }
+.popup-arrow { background:url(../images/popup_arrow.gif) no-repeat; position:absolute; left:77%; top:-10px; height:10px; width:19px; }
+.popup-close { background:url(../images/btn_window_close.gif) no-repeat; display:block; position:absolute; top:8px; right:10px; height:15px; width:15px; text-indent:-9999em; -moz-box-shadow:0 0 3px #999; -webkit-box-shadow:0 0 3px #999; box-shadow:0 0 3px #999; -moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; }
+.popup-content { border-top:1px solid #eee; padding:10px; text-align:left; }
+#login-popup {right: -100px; top:75px; width: 625px}
+.ajax-loader {display: inline-block; background: url(../images/ajax-loader.gif) no-repeat 0 0; width:16px; height:11px; vertical-align: middle; }
