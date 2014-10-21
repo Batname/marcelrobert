@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Inchoo_Mymodule>
+            <active>false</active>
+            <codePool>local</codePool>
+        </Inchoo_Mymodule>
+    </modules>
+</config>

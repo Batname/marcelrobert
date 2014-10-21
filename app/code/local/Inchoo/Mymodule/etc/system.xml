@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <inchoo translate="label" module="mymodule">
+            <label>Inchoo Extensions</label>
+            <sort_order>100</sort_order>
+        </inchoo>
+    </tabs>
+    <sections>
+        <inchoo translate="label" module="mymodule">
+            <label>Extension Options</label>
+            <tab>inchoo</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <inchoo_group translate="label" module="mymodule">
+                    <label>My Extension Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <inchoo_input translate="label">
+                            <label>My Input Field: </label>
+                            <comment>My Comment</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </inchoo_input>
+                        <inchoo_select translate="label">
+                            <label>My Dropdown: </label>
+                            <comment>Source model provider Magento's default Yes/No values</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </inchoo_select>
+                    </fields>
+                </inchoo_group>
+            </groups>
+        </inchoo>
+    </sections>
+</config>

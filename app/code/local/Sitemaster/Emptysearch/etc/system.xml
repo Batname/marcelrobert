@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <sitemaster_emptysearch translate="label" module="sitemaster_emptysearch">
+            <label>Sitemaster Emptysearch</label>
+            <tab>sitemaster_linkpartners</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general_all translate="label" module="sitemaster_emptysearch">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <search_key translate="label">
+                            <label>Search key</label>
+                            <comment><![CDATA[Identifier of the search key all products]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-code</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </search_key>
+                    </fields>
+                </general_all>
+            </groups>
+        </sitemaster_emptysearch>
+    </sections>
+</config>

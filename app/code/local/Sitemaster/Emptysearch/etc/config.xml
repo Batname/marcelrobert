@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Sitemaster_Emptysearch>
+            <version>0.1.0</version>
+        </Sitemaster_Emptysearch>
+    </modules>
+    <global>
+        <models>
+            <sitemaster_emptysearch>
+                <class>Sitemaster_Emptysearch_Model</class>
+            </sitemaster_emptysearch>
+            <catalogsearch_resource>
+                <rewrite>
+                    <fulltext>Sitemaster_Emptysearch_Model_Resource_Fulltext</fulltext>
+                </rewrite>
+            </catalogsearch_resource>
+        </models>
+        <helpers>
+            <sitemaster_emptysearch>
+                <class>Sitemaster_Emptysearch_Helper</class>
+            </sitemaster_emptysearch>
+        </helpers>
+    </global>
+    <default>
+        <sitemaster_emptysearch>
+            <general_all>
+                <search_key>all_products</search_key>
+            </general_all>
+        </sitemaster_emptysearch>
+    </default>
+</config>

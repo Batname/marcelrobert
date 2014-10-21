@@ -301,7 +301,7 @@ set `<reference name="product.info">
                                  </script>`
 * search page
 
-* set new search module           `var_dump($queryText);
+* set new search module  Sitemaster_Emptysearch         `var_dump($queryText);
                 if ($queryText != 'bat') {
                     if ($where != '') {
                         $select->where($where);

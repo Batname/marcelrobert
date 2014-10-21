@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Inchoo_Mymodule>
+            <version>0.1.0</version>
+        </Inchoo_Mymodule>
+    </modules>
+    <global>
+        <models>
+            <mymodule>
+                <class>Inchoo_Mymodule_Model</class>
+            </mymodule>
+        </models>
+        <helpers>
+            <mymodule>
+                <class>Inchoo_Mymodule_Helper</class>
+            </mymodule>
+        </helpers>
+    </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <inchoo>
+                                            <title>Inchoo - All</title>
+                                        </inchoo>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>
