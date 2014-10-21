@@ -314,4 +314,26 @@ in `/var/www/pro-ex/app/code/core/Mage/CatalogSearch/Model/Resource/Fulltext.php
 
 7. checkout-cart-index
 
+8. checkout-onepage-index
+
+in /var/www/marcelrobert.com/skin/frontend/ultimo/main_marcelrobert/js/opcheckout.js 50-63
+
+   ` /**
+     * Top Section header click handler
+     *
+     * @param event
+     */
+    _onTopSectionClick: function(event) {
+        var section = $(Event.element(event).up());
+        console.log(section);
+        if (section.hasClassName('allow')) {
+            Event.stop(event);
+            this.gotoSection(section.readAttribute('id').replace('top-opc-', ''));
+            return false;
+        }
+    },`
+
+in /var/www/marcelrobert.com/skin/frontend/ultimo/main_marcelrobert/js/opcheckout.js 50-63
+            `Event.observe($('top-'+section.readAttribute('id')), 'click', this._onTopSectionClick.bindAsEventListener(this));`
+
 ## 7. Install debug module
