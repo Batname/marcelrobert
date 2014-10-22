@@ -354,6 +354,26 @@ http://www.fmeextensions.com/free-stuff/extensions/quick-contact.html
 http://www.magentocommerce.com/magento-connect/webforms-community-edition.html
 http://www.magentocommerce.com/magento-connect/quick-contact-form-1.html
 
+защита от авторизаций http://freaksidea.com/php_and_somethings/show-25-ajax-avtorizatsiia-i-reghistratsiia-v-magento
 
+12. Sitemaster_MenuImage exdends from original extension
+
+
+* rewrite Infortis_UltraMegamenu_Block_Category_Attribute_Helper_Dropdown_Blocks
+  set const MAX_BLOCKS = 4 to 5 >> const MAX_BLOCKS_REWRITE = 5;
+  set protected $_labels = array('Top Block', 'Left Block', 'Right Block', 'Bottom Block'); to protected $_labels = array('Top Block', 'Left Block', 'Right Block', 'Bottom Block', 'Bat Block');
+
+* rewrite Infortis_UltraMegamenu_Block_Navigation
+
+   set new $varable in line 85 $varable = '';
+   check condition in line 145 and return this
+               if (!empty($x29[4])) {
+                   $x2c = TRUE;
+                   $varable .= $x29[4] ;
+               }
+
+   set outpot block in line 275  $x1c .= '<span>' . $varable .$this->escapeHtml($x13->getName()) . $x43 . $x44 . '</span>' . $x3e;
+
+need Debug
 
 ## 7. Install debug module

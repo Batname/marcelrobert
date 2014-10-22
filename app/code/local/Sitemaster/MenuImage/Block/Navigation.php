@@ -1,40 +1,7 @@
-<?php class Infortis_UltraMegamenu_Block_Navigation extends Mage_Catalog_Block_Navigation
+<?php
+
+class Sitemaster_MenuImage_Block_Navigation extends Infortis_UltraMegamenu_Block_Navigation
 {
-    const DDTYPE_NONE = 0;
-    const DDTYPE_MEGA = 1;
-    const DDTYPE_CLASSIC = 2;
-    const DDTYPE_SIMPLE = 3;
-    protected $p0b;
-    protected $p0c = FALSE;
-    protected $p0d;
-    protected $p0e = FALSE;
-    protected $p0f = NULL;
-    protected $p10 = NULL;
-
-    protected function _construct()
-    {
-        parent::_construct();
-        $this->p0b = array(self::DDTYPE_MEGA => "me\x67a", self::DDTYPE_CLASSIC => "\x63\154\x61\163si\143", self::DDTYPE_SIMPLE => "\x73im\160\154\145");
-        $this->p0c = FALSE;
-        $this->p0d = "\043@#";
-        $this->p0e = FALSE;
-        $this->p0f = NULL;
-        if (Mage::registry('current_category')) {
-            $this->p10 = Mage::registry('current_category')->getId();
-        }
-    }
-
-    public function getCacheKeyInfo()
-    {
-        $x11 = array('CATALOG_NAVIGATION', Mage::app()->getStore()->getId(), Mage::getDesign()->getPackageName(), Mage::getDesign()->getTheme('template'), Mage::getSingleton('customer/session')->getCustomerGroupId(), 'template' => $this->getTemplate(), 'name' => $this->getNameInLayout(), $this->getCurrenCategoryKey(), Mage::helper('ultramegamenu')->getIsOnHome(), (int)Mage::app()->getStore()->isCurrentlySecure(),);
-        $x12 = $x11;
-        $x11 = array_values($x11);
-        $x11 = implode('|', $x11);
-        $x11 = md5($x11);
-        $x12['category_path'] = $this->getCurrenCategoryKey();
-        $x12['short_cache_id'] = $x11;
-        return $x12;
-    }
 
     protected function x0b($x13, $x14 = 0, $x15 = FALSE, $x16 = FALSE, $x17 = FALSE, $x18 = '', $x19 = '', $x1a = FALSE, $x1b = null)
     {
@@ -80,6 +47,7 @@
         $x27 = array("\x64d\x54\171\160\x65" => $x26,);
         $x28 = FALSE;
         $x29 = array();
+        $menuImage = '';
         $x2a = '';
         $x2b = '';
         $x2c = FALSE;
@@ -140,6 +108,10 @@
             if (!empty($x29[3])) {
                 $x2c = TRUE;
                 $x2b .= '<div class="nav-block nav-block--bottom std grid-full">' . $x29[3] . '</div>';
+            }
+            if (!empty($x29[4])) {
+                $x2c = TRUE;
+                $menuImage .=  $x29[4];
             }
         }
         $x37 = ($x23 || $x2c) ? TRUE : FALSE;
@@ -268,7 +240,7 @@
             }
         }
         $x1c .= '<a href="' . $x46 . '"' . ($x39 ? ' class="' . implode("\040", $x39) . '"' : '') . '>';
-        $x1c .= '<span>' . $this->escapeHtml($x13->getName()) . $x43 . $x44 . '</span>' . $x3e;
+        $x1c .= '<span>'. $menuImage . $this->escapeHtml($x13->getName()) . $x43 . $x44 . '</span>' . $x3e;
         $x1c .= '</a>';
         $x47 = '';
         $x48 = 0;
@@ -301,173 +273,5 @@
         return $x1c;
     }
 
-    public function renderCategoriesMenuHtml($x49 = FALSE, $x14 = 0, $x18 = '', $x19 = '')
-    {
-        $x4a = array();
-        foreach ($this->getStoreCategories() as $x21) {
-            if ($x21->getIsActive()) {
-                $x4a[] = $x21;
-            }
-        }
-        $x4b = count($x4a);
-        $x4c = ($x4b > 0);
-        if (!$x4c) {
-            return '';
-        }
-        $x1b = array("d\144T\171\x70\145" => self::DDTYPE_NONE);
-        $x1c = '';
-        $x48 = 0;
-        foreach ($x4a as $x13) {
-            $x1c .= $this->x0b($x13, $x14, ($x48 == $x4b - 1), ($x48 == 0), TRUE, $x18, $x19, TRUE, $x1b);
-            $x48++;
-        }
-        return $x1c;
-    }
 
-    public function renderMe($x49, $x4d = 0, $x4e = 0)
-    {
-        $x4f = '';
-        $x50 = '';
-        if ($x4d === 'parent_no_siblings') {
-            if ($x51 = Mage::registry('current_category')) {
-                $x4f = $x51->getId();
-                $x50 = $x51->getLevel();
-            }
-        }
-        $this->p0c = TRUE;
-        $this->p0e = Mage::helper('ultramegamenu')->getCfg('sidemenu/num_of_products');
-        $x14 = 0;
-        $x18 = '';
-        $x19 = '';
-        $x52 = $this->x0e($x4d);
-        $x53 = $this->x0c($x52, $x4e);
-        $x4a = array();
-        foreach ($x53 as $x21) {
-            if ($x21->getIsActive()) {
-                if ($x4d === 'parent_no_siblings') {
-                    if ($x50 !== '' && $x21->getLevel() == $x50 && $x21->getId() != $x4f) {
-                        continue;
-                    }
-                }
-                $x4a[] = $x21;
-            }
-        }
-        $x4b = count($x4a);
-        $x4c = ($x4b > 0);
-        if (!$x4c) {
-            return '';
-        }
-        $x1b = array("\x64\x64\x54\x79pe" => self::DDTYPE_NONE);
-        $x1c = '';
-        $x48 = 0;
-        foreach ($x4a as $x13) {
-            $x1c .= $this->x0b($x13, $x14, ($x48 == $x4b - 1), ($x48 == 0), TRUE, $x18, $x19, TRUE, $x1b);
-            $x48++;
-        }
-        return $x1c;
-    }
-
-    protected function x0c($x52 = 0, $x4e = 0, $x54 = FALSE, $x55 = FALSE, $x56 = TRUE)
-    {
-        $x13 = Mage::getModel('catalog/category');
-        if ($x52 === NULL || !$x13->checkId($x52)) {
-            return array();
-        }
-        if (Mage::helper('catalog/category_flat')->isEnabled()) {
-            $x53 = $this->x0d($x52, $x4e, $x54, $x55, $x56);
-        } else {
-            $x53 = $x13->getCategories($x52, $x4e, $x54, $x55, $x56);
-        }
-        return $x53;
-    }
-
-    protected function x0d($x52 = 0, $x4e = 0, $x54 = FALSE, $x55 = FALSE, $x56 = TRUE)
-    {
-        $x57 = Mage::getResourceModel('catalog/category_flat');
-        return $x57->getCategories($x52, $x4e, $x54, $x55, $x56);
-    }
-
-    protected function x0e($x4d)
-    {
-        $x52 = NULL;
-        if ($x4d === 'current') {
-            $x51 = Mage::registry('current_category');
-            if ($x51) {
-                $x52 = $x51->getId();
-            }
-        } elseif ($x4d === 'parent') {
-            $x51 = Mage::registry('current_category');
-            if ($x51) {
-                $x52 = $x51->getParentId();
-            }
-        } elseif ($x4d === 'parent_no_siblings') {
-            $x51 = Mage::registry('current_category');
-            if ($x51) {
-                $x52 = $x51->getParentId();
-            }
-        } elseif ($x4d === 'root' || !$x4d) {
-            $x52 = Mage::app()->getStore()->getRootCategoryId();
-        } elseif (is_numeric($x4d)) {
-            $x52 = intval($x4d);
-        }
-        $x58 = Mage::helper('ultramegamenu')->getCfg('sidemenu/fallback');
-        if ($x52 === NULL && $x58) {
-            $x52 = Mage::app()->getStore()->getRootCategoryId();
-        }
-        return $x52;
-    }
-
-    protected function x0f($x13)
-    {
-        return Mage::getModel('catalog/layer')->setCurrentCategory($x13->getID())->getProductCollection()->getSize();
-    }
-
-    public function renderBlockTitle()
-    {
-        $x24 = Mage::helper('ultramegamenu');
-        $x51 = Mage::registry('current_category');
-        if (!$x51) {
-            $x58 = $x24->getCfg('sidemenu/fallback');
-            if ($x58) {
-                $x59 = $x24->getCfg('sidemenu/block_name_fallback');
-                if ($x59) {
-                    return $x59;
-                }
-            }
-        }
-        $x5a = $this->getBlockName();
-        if ($x5a === NULL) {
-            $x5a = $x24->getCfg('sidemenu/block_name');
-        }
-        $x5b = '';
-        if ($x51) {
-            $x5b = $x51->getName();
-        }
-        $x5a = str_replace('[current_category]', $x5b, $x5a);
-        return $x5a;
-    }
-
-    protected function x10($x25, $x5c)
-    {
-        if (!$this->p0f) {
-            $this->p0f = Mage::helper('cms')->getBlockTemplateProcessor();
-        }
-        return $this->p0f->filter(trim($x25->getData($x5c)));
-    }
-
-    protected function x11($x25, $x14)
-    {
-        $x5d = $x25->getData('umm_cat_label');
-        if ($x5d) {
-            $x5e = trim(Mage::helper('ultramegamenu')->getCfg('category_labels/' . $x5d));
-            if ($x5e) {
-                if ($x14 == 0) {
-                    return '<span class="cat-label cat-label-' . $x5d . ' pin-bottom">' . $x5e . '</span>';
-                } else {
-                    return '<span class="cat-label cat-label-' . $x5d . '">' . $x5e . '</span>';
-                }
-            }
-        }
-        return '';
-    }
 }

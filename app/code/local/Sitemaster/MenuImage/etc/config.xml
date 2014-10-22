@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Sitemaster_MenuImage>
+            <version>0.1.0</version>
+        </Sitemaster_MenuImage>
+    </modules>
+    <global>
+        <blocks>
+            <sitemaster_menuimage>
+                <class>Sitemaster_MenuImage_Block</class>
+            </sitemaster_menuimage>
+            <ultramegamenu>
+                <rewrite>
+                    <navigation>Sitemaster_MenuImage_Block_Navigation</navigation>
+                </rewrite>
+                <rewrite>
+                    <category_attribute_helper_dropdown_blocks>Sitemaster_MenuImage_Block_Category_Attribute_Helper_Dropdown_Blocks</category_attribute_helper_dropdown_blocks>
+                </rewrite>
+            </ultramegamenu>
+        </blocks>
+    </global>
+</config>

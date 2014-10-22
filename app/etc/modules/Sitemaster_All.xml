@@ -40,6 +40,19 @@
                 <Infortis_UltraSlideshow/>
             </depends>
         </Sitemaster_Emptysearch>
+        <Sitemaster_MenuImage>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Infortis_Infortis/>
+                <Infortis_Brands/>
+                <Infortis_CloudZoom/>
+                <Infortis_Dataporter/>
+                <Infortis_Ultimo/>
+                <Infortis_UltraMegamenu/>
+                <Infortis_UltraSlideshow/>
+            </depends>
+        </Sitemaster_MenuImage>
         <Sitemaster_EasyAjax>
             <active>true</active>
             <codePool>local</codePool>
