@@ -65,5 +65,9 @@
                 <Mage_Wishlist/>
             </depends>
         </Sitemaster_Wishlist>
+        <Sitemaster_PageMenu>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sitemaster_PageMenu>
     </modules>
 </config>

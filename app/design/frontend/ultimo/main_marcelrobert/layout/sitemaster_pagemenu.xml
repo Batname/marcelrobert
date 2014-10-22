@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <cms_page_view>
+        <reference name="left"><!--or right-->
+            <block type="core/template" name="cms-navigation" template="cms/navigation.phtml" before="-"/>
+        </reference>
+    </cms_page_view>
+    <customer_account>
+        <reference name="left"><!--or right-->
+            <block type="core/template" name="cms-navigation" template="cms/navigation.phtml" after="customer_account_navigation"/>
+        </reference>
+    </customer_account>
+</layout>

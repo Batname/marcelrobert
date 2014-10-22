@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <frontend>
+        <layout>
+            <updates>
+                <sitemaster_pagemenu>
+                    <file>sitemaster_pagemenu.xml</file>
+                </sitemaster_pagemenu>
+            </updates>
+        </layout>
+    </frontend>
+</config>

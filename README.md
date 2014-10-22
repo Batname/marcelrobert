@@ -340,4 +340,6 @@ in /var/www/marcelrobert.com/skin/frontend/ultimo/main_marcelrobert/js/opcheckou
 
 10. Sitemaster_Wishlist
 
+11. Sitemaster_PageMenu
+
 ## 7. Install debug module
