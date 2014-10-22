@@ -237,6 +237,7 @@
 			<!-- Remove checkout links -->
 			<remove name="checkout_cart_link" />
             <action method="removeLinkByUrl"><url helper="customer/getAccountUrl"/><position>10</position></action>
+            <action method="removeLinkBlock"><blockName>wishlist_link</blockName></action>
 		</reference>
 		
 		
@@ -724,6 +725,12 @@
 		</reference>
 
 	</customer_account>
+
+    <customer_logged_in>
+        <reference name="top.links">
+            <action method="addLinkBlock"><blockName>wishlist_link</blockName></action>
+        </reference>
+    </customer_logged_in>
 
 
 	<!-- ALL CMS PAGES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->

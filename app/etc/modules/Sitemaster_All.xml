@@ -5,39 +5,39 @@
             <active>true</active>
             <codePool>local</codePool>
             <depends>
-                <Infortis_Infortis />
-                <Infortis_Brands />
-                <Infortis_CloudZoom />
-                <Infortis_Dataporter />
-                <Infortis_Ultimo />
-                <Infortis_UltraMegamenu />
-                <Infortis_UltraSlideshow />
+                <Infortis_Infortis/>
+                <Infortis_Brands/>
+                <Infortis_CloudZoom/>
+                <Infortis_Dataporter/>
+                <Infortis_Ultimo/>
+                <Infortis_UltraMegamenu/>
+                <Infortis_UltraSlideshow/>
             </depends>
         </Sitemaster_LinkPartners>
         <Sitemaster_Ultimo>
             <active>true</active>
             <codePool>local</codePool>
             <depends>
-                <Infortis_Infortis />
-                <Infortis_Brands />
-                <Infortis_CloudZoom />
-                <Infortis_Dataporter />
-                <Infortis_Ultimo />
-                <Infortis_UltraMegamenu />
-                <Infortis_UltraSlideshow />
+                <Infortis_Infortis/>
+                <Infortis_Brands/>
+                <Infortis_CloudZoom/>
+                <Infortis_Dataporter/>
+                <Infortis_Ultimo/>
+                <Infortis_UltraMegamenu/>
+                <Infortis_UltraSlideshow/>
             </depends>
         </Sitemaster_Ultimo>
         <Sitemaster_Emptysearch>
             <active>true</active>
             <codePool>local</codePool>
             <depends>
-                <Infortis_Infortis />
-                <Infortis_Brands />
-                <Infortis_CloudZoom />
-                <Infortis_Dataporter />
-                <Infortis_Ultimo />
-                <Infortis_UltraMegamenu />
-                <Infortis_UltraSlideshow />
+                <Infortis_Infortis/>
+                <Infortis_Brands/>
+                <Infortis_CloudZoom/>
+                <Infortis_Dataporter/>
+                <Infortis_Ultimo/>
+                <Infortis_UltraMegamenu/>
+                <Infortis_UltraSlideshow/>
             </depends>
         </Sitemaster_Emptysearch>
         <Sitemaster_EasyAjax>
@@ -48,15 +48,22 @@
             <active>true</active>
             <codePool>local</codePool>
             <depends>
-                <Sitemaster_EasyAjax />
+                <Sitemaster_EasyAjax/>
             </depends>
         </Sitemaster_AjaxCart>
         <Sitemaster_AjaxLogin>
             <active>true</active>
             <codePool>local</codePool>
             <depends>
-                <Sitemaster_EasyAjax />
+                <Sitemaster_EasyAjax/>
             </depends>
         </Sitemaster_AjaxLogin>
+        <Sitemaster_Wishlist>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Wishlist/>
+            </depends>
+        </Sitemaster_Wishlist>
     </modules>
 </config>

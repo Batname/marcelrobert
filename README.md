@@ -338,4 +338,6 @@ in /var/www/marcelrobert.com/skin/frontend/ultimo/main_marcelrobert/js/opcheckou
 
 9. Login & Ajax modules
 
+10. Sitemaster_Wishlist
+
 ## 7. Install debug module
