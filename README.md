@@ -342,4 +342,18 @@ in /var/www/marcelrobert.com/skin/frontend/ultimo/main_marcelrobert/js/opcheckou
 
 11. Sitemaster_PageMenu
 
+12. Sitemaster_CustomForm
+- Email Send (Admin & Customer)
+- AdminHtml Grig
+
+http://habrahabr.ru/post/180555/
+http://inchoo.net/magento/magento-email/magento-custom-email-contact-form-with-notification-system/
+http://www.slideshare.net/semjacobs92/tutorial-about-create-custom-contact-from-in-magento
+http://www.magesolution.com/magento-advance-contact.html
+http://www.fmeextensions.com/free-stuff/extensions/quick-contact.html
+http://www.magentocommerce.com/magento-connect/webforms-community-edition.html
+http://www.magentocommerce.com/magento-connect/quick-contact-form-1.html
+
+
+
 ## 7. Install debug module
